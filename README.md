@@ -1,4 +1,9 @@
-# GensolveDashboard
+# Angular Tailwind UI Starter
+
+## Full credit
+
+- [beavearony](https://dev.to/beavearony/building-tailwind-css-in-an-angular-cli-project-e04)
+- [Tailwind UI](https://tailwindui.com/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
 

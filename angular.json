@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gensolve-dashboard": {
+    "angular-tailwind-starter": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,21 +15,19 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/gensolve-dashboard",
+            "customWebpackConfig": {
+              "path": "extra-webpack.config.js"
+            },
+            "outputPath": "dist/angular-tailwind-starter",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/tailwind.scss", "src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -64,20 +62,23 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "gensolve-dashboard:build"
+            "customWebpackConfig": {
+              "path": "extra-webpack.config.js"
+            },
+            "browserTarget": "angular-tailwind-starter:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gensolve-dashboard:build:production"
+              "browserTarget": "angular-tailwind-starter:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gensolve-dashboard:build"
+            "browserTarget": "angular-tailwind-starter:build"
           }
         },
         "test": {
@@ -87,13 +88,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
@@ -105,24 +101,26 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "gensolve-dashboard:serve"
+            "devServerTarget": "angular-tailwind-starter:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gensolve-dashboard:serve:production"
+              "devServerTarget": "angular-tailwind-starter:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "gensolve-dashboard"
+    }
+  },
+  "defaultProject": "angular-tailwind-starter",
+  "cli": {
+    "analytics": false
+  }
 }
