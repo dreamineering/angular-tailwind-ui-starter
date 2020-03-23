@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  name: 'dev',
+  production: false,
+  fakeApi: true,
+  api_url: 'api',
+  testOrgId: 1573,                            // 1573, 3251, 6853
+  locktime: 3000000,
+  // api_url: 'http://localhost/GPMApi/',
+  signalr: 'http://localhost:9999',
+  locale: 'en-NZ',
+  // app_country: 'NZ',
+  // version: '##GSOVERSION##',
+  // GoogleReCaptcha_SiteKey: '6LdVZSUTAAAAAJhbpbdJNmpD4RaXOshxifBIc8sR',
+  clientId: '1',
+  client_secret: '123'
 };
 
 /*
@@ -14,3 +27,18 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+/*
+ * production: false,
+ * name: 'dev',
+ * api_url: 'http://localhost/GPMApi/',
+ * locktime: 3000000,
+ * signalr: 'http://localhost:9999',
+ * locale: 'en-NZ',
+ * phisyio_country: 'NZ',
+ * version: '##GSOVERSION##',
+ * GoogleReCaptcha_SiteKey: '6LdVZSUTAAAAAJhbpbdJNmpD4RaXOshxifBIc8sR',
+ * clientId: '1',
+ * client_secret: '123'
+ *
+ */

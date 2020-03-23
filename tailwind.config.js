@@ -8,5 +8,9 @@ module.exports = {
       }
     }
   },
-  plugins: [require("@tailwindcss/ui")]
+  plugins: [
+    require("@tailwindcss/ui")({
+      layout: "sidebar"
+    })
+  ]
 };
