@@ -1,0 +1,41 @@
+<div class="">
+  <div class="">
+    Your events
+  </div>
+
+  <a class="" [routerLink]="['/event-add']">
+    Add an event
+  </a>
+
+  <div class="">
+    <div class="">
+      <table class="" *ngIf="events && events.length">
+        <thead>
+          <tr>
+            <th>Discipline</th>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Due on</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events">
+            <td>{{ event.discipline }}</td>
+            <td>{{ event.type }}</td>
+            <td>
+              <a [routerLink]="['/events', event.eventId]">
+                {{ event.subject }}
+              </a>
+            </td>
+            <td>{{ event.dueDate | date: "dd/MM/yyyy" }}</td>
+            <td>
+              <a class="" [routerLink]="['/event-update', event.eventId]">
+                Edit
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

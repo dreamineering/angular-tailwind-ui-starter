@@ -1,10 +1,10 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { IFutureBooking } from '../dashboard/shared/models/future-booking.interface';
 
-export enum KEY_CODE {
-  RIGHT_ARROW = 39,
-  LEFT_ARROW = 37,
-  ESC = 27
-}
+
+// https://ultimatecourses.com/blog/angular-ngfor-template-element
+// https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/
 
 @Component({
   selector: 'app-home',
@@ -12,30 +12,57 @@ export enum KEY_CODE {
 })
 export class HomeComponent implements OnInit {
 
-  sidebarOpen: boolean;
+  futureBookings: Observable<IFutureBooking[]>;
 
   constructor() { }
 
-  @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    console.log(event);
-
-    const key = event.key || event.keyCode;
-
-    if (key === KEY_CODE.ESC) {
-      this.sidebarOpen = false;
-    }
-
-    // if (key === KEY_CODE.LEFT_ARROW) {
-    //   this.decrement();
-    // }
-  }
-
-  changeSidebar(state: boolean) {
-    this.sidebarOpen = state;
-  }
-
   ngOnInit() {
+    this.futureBookings = of([
+      {
+        siteName: 'Clapham',
+        totalOnlineBookings: 3,
+        totalBookings: 47,
+        totalPrivateCharges: 0,
+        totalInsuranceCharges: 0,
+        totalMembershipCharges: 0,
+        totalClassCharges: 0
+      },
+      {
+        siteName: 'Clapham',
+        totalOnlineBookings: 3,
+        totalBookings: 47,
+        totalPrivateCharges: 0,
+        totalInsuranceCharges: 0,
+        totalMembershipCharges: 0,
+        totalClassCharges: 0
+      },
+      {
+        siteName: 'Barnes',
+        totalOnlineBookings: 3,
+        totalBookings: 47,
+        totalPrivateCharges: 0,
+        totalInsuranceCharges: 0,
+        totalMembershipCharges: 0,
+        totalClassCharges: 0
+      },
+      {
+        siteName: 'Putney',
+        totalOnlineBookings: 3,
+        totalBookings: 47,
+        totalPrivateCharges: 0,
+        totalInsuranceCharges: 0,
+        totalMembershipCharges: 0,
+        totalClassCharges: 0
+      },
+      {
+        siteName: 'Wimbledon',
+        totalOnlineBookings: 3,
+        totalBookings: 47,
+        totalPrivateCharges: 0,
+        totalInsuranceCharges: 0,
+        totalMembershipCharges: 0,
+        totalClassCharges: 0
+      },
+    ]);
   }
-
 }

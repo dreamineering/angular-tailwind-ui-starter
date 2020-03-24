@@ -1,7 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, HostBinding } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+export enum KEY_CODE {
+  RIGHT_ARROW = 39,
+  LEFT_ARROW = 37,
+  ESC = 27
+}
 
 @Component({
   selector: 'app-nav',
@@ -9,15 +15,31 @@ import { map } from 'rxjs/operators';
 })
 export class AppNavComponent {
 
-  // isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-  //   .pipe(
-  //     map(result => result.matches)
-  //   );
+  sidebarOpen = false;
 
-  // constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor() { }
 
-  // checked = false;
-  // indeterminate = false;
-  // align = 'start';
-  // disabled = false;
+  // ngOnInit() {
+  // }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    console.log(event);
+
+    const key = event.key || event.keyCode;
+
+    if (key === KEY_CODE.ESC) {
+      this.sidebarOpen = false;
+    }
+
+    // if (key === KEY_CODE.LEFT_ARROW) {
+    //   this.decrement();
+    // }
+  }
+
+  changeSidebar(state: boolean) {
+    this.sidebarOpen = state;
+  }
+
+
 }
