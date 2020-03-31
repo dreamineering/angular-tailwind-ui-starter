@@ -7,7 +7,7 @@ import { EventService } from './shared/event.service';
   selector: 'app-event-lists',
   templateUrl: './event-list.component.html'
 })
-export class EventListsComponent implements OnInit {
+export class EventListComponent implements OnInit {
   title = 'Events';
   events: Event[] = [];
 

@@ -1,11 +1,9 @@
 import { Injectable, ErrorHandler } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, do } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
+import { Observable } from 'rxjs/Observable';
 
 import { Event } from './event.model';
+import { EventWithDetails } from './event-with-details.model';
 // import { BaseService } from '../../shared/base.service';
 
 // export class TourService extends BaseService {
@@ -13,7 +11,7 @@ import { Event } from './event.model';
 @Injectable()
 export class EventService {
 
-  apiUrl = 'localhost';
+  apiUrl = 'http://localhost:51681/api/business-admin/2596540/';
 
   constructor(private http: HttpClient) {
     // super();
@@ -26,4 +24,11 @@ export class EventService {
   getEvent(eventId: string): Observable<Event> {
     return this.http.get<Event>(`${this.apiUrl}/events/${eventId}`);
   }
+
+  getEventWithDetails(eventId: string): Observable<EventWithDetails> {
+    return this.http.get<EventWithDetails>(`${this.apiUrl}/events/${eventId}`,
+      { headers: { Accept: 'application/vnd.gensolve.eventwithdetails+json' } });
+  }
+
+
 }

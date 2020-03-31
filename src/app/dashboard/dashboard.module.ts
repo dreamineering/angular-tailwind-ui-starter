@@ -30,13 +30,6 @@ import { OverviewComponent } from './overview.component';
   ],
   exports: [
     FutureBookingTableComponent
-    // FormsModule,
-    // ReactiveFormsModule,
-    // BrowserAnimationsModule,
-    // LayoutModule,
-    // FlexLayoutModule,
-    // HttpClientModule,
-    // InsightsSharedModule
   ]
 })
 export class DashboardModule { }

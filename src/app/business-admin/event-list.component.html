@@ -3,7 +3,7 @@
     Your events
   </div>
 
-  <a class="" [routerLink]="['/event-add']">
+  <a class="" routerLink="['/event-add']">
     Add an event
   </a>
 
@@ -23,13 +23,13 @@
             <td>{{ event.discipline }}</td>
             <td>{{ event.type }}</td>
             <td>
-              <a [routerLink]="['/events', event.eventId]">
+              <a routerLink="['/events', event.eventId]">
                 {{ event.subject }}
               </a>
             </td>
             <td>{{ event.dueDate | date: "dd/MM/yyyy" }}</td>
             <td>
-              <a class="" [routerLink]="['/event-update', event.eventId]">
+              <a class="" routerLink="['/event-update', event.eventId]">
                 Edit
               </a>
             </td>

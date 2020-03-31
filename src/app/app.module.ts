@@ -27,11 +27,11 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     CoreModule,
     SharedModule,
     DashboardModule,
-    BusinessAdminModule
+    BusinessAdminModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

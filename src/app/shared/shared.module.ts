@@ -7,9 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Component libraries
 import { MaterialModule } from './material.module';
-// import { KendoModule } from './kendo.module';
 
 // Generic Components
+import { ButtonComponent } from './components/button.component';
 
 // import { HourPipe } from './pipes/pipes';
 
@@ -23,6 +23,7 @@ import { MaterialModule } from './material.module';
     MaterialModule
   ],
   declarations: [
+    ButtonComponent
     // HourPipe
   ],
   providers: [
@@ -38,6 +39,7 @@ import { MaterialModule } from './material.module';
     // Material
     MaterialModule,
     // Components
+    ButtonComponent
     // HourPipe
   ]
 })
